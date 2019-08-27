@@ -32,7 +32,7 @@
     Object.setPrototypeOf(app.prototype, App.prototype);
   };
 
-  if (typeof window.pc !== undefined) {
+  if (typeof window.pc === object) {
     pc.extend(pc, {
       registerScript: registerScript
     });
