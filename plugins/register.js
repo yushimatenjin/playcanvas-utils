@@ -1,0 +1,23 @@
+/**
+ * @name registerScript
+ * @description This function easily adds a script written in a class to PlayCanvas.
+ * @param {Object} App
+ * @param {Object} attributeses
+ * @return {Object}
+ */
+const registerScript = (App, attributeses) => {
+  const name = App.name.toLowerCase();
+  const app = pc.createScript(name);
+  if (attributeses !== undefined) {
+    const attributes = Object.values(attributeses);
+    for (let attr of attributes) {
+      Object.entries(attr).forEach(item => {
+        app.attributes.add(item[0], item[1]);
+      });
+    }
+  }
+  Object.setPrototypeOf(app.prototype, App.prototype);
+  return app;
+};
+
+pc.extend(pc, { registerScript: registerScript });
