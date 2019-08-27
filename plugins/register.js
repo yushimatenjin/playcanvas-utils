@@ -3,7 +3,18 @@
  * @description This function easily adds a script written in a class to PlayCanvas.
  * @param {Object} App
  * @param {Object} attributeses
- * @return {Object}
+ * @returns {Object}
+ * @example
+ * class RotateToEntity{
+ *  initialize(){
+ *    console.log("function initialize() called")
+ *   }
+ *  update(){
+ *    this.entity.rotate(0, 1, 0)
+ *   }
+ * }
+ *
+ * pc.registerScript(RotateToEntity)
  */
 const registerScript = (App, attributeses) => {
   const name = App.name.toLowerCase();
